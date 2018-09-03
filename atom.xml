@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://catieBlog.github.io/"/>
-  <updated>2018-09-03T09:39:27.858Z</updated>
+  <updated>2018-09-03T09:46:18.808Z</updated>
   <id>https://catieBlog.github.io/</id>
   
   <author>
@@ -21,17 +21,19 @@
     <link href="https://catieBlog.github.io/2018/09/03/leetcode-contest-100/"/>
     <id>https://catieBlog.github.io/2018/09/03/leetcode-contest-100/</id>
     <published>2018-09-03T07:14:15.000Z</published>
-    <updated>2018-09-03T09:39:27.858Z</updated>
+    <updated>2018-09-03T09:46:18.808Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;前言   &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这次contest做的不好，前两个简单题交错了两次，第三题因为set迭代添加的事改来改去。再加上找工作告一个小段落，也想放松放松，不过这周的题都很简单。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;896：判断是否为单调序列 O(n)  &lt;/li&gt;
+&lt;li&gt;897：把BST变成链表&lt;/li&gt;
+&lt;li&gt;898：求数组的连续子集&lt;/li&gt;
+&lt;li&gt;899：对字符串的变相排序
     
     </summary>
     
