@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="catie&#39;s blogs">
 <meta property="og:description" content="前言     这次contest做的不好，前两个简单题交错了两次，第三题因为set迭代添加的事改来改去。再加上找工作告一个小段落，也想放松放松，不过这周的题都很简单。  896：判断是否为单调序列 O(n)   897：把BST变成链表 898：求数组的连续子集 899：对字符串的变相排序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T09:46:18.808Z">
+<meta property="og:updated_time" content="2018-09-04T03:11:03.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-contest-100">
 <meta name="twitter:description" content="前言     这次contest做的不好，前两个简单题交错了两次，第三题因为set迭代添加的事改来改去。再加上找工作告一个小段落，也想放松放松，不过这周的题都很简单。  896：判断是否为单调序列 O(n)   897：把BST变成链表 898：求数组的连续子集 899：对字符串的变相排序">
@@ -383,13 +383,13 @@
 <li>897：把BST变成链表</li>
 <li>898：求数组的连续子集</li>
 <li>899：对字符串的变相排序 <a id="more"></a>
+</li>
+</ul>
 <blockquote>
 <ol start="896">
 <li>Monotonic Array  </li>
 </ol>
 </blockquote>
-</li>
-</ul>
 <p>An array is monotonic if it is either monotone increasing or monotone decreasing.<br>An array A is monotone increasing if for all i &lt;= j, A[i] &lt;= A[j].  An array A is monotone decreasing if for all i &lt;= j, A[i] &gt;= A[j].<br>Return true if and only if the given array A is monotonic.<br>给出一个序列，判断是否是单调序列。<br>朴素想法：三个点a,b,c如果是单调序列(b-a),(c-b)的符号相同，否则相反。这里一定要保证a,b,c是互不相同的，不然会影响判断。因此用first,second,three记录a,b,c的下标，通过first = second;second = three;进行迭代。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMonotonic</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(A.length &lt;= <span class="number">2</span>)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> second = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> three = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(first &lt; A.length)&#123;</span><br><span class="line">        <span class="keyword">while</span>(second &lt; A.length &amp;&amp; A[second] == A[first])second++;</span><br><span class="line">        <span class="keyword">if</span>(second &lt; A.length)&#123;</span><br><span class="line">            three = second;</span><br><span class="line">            <span class="keyword">while</span>(three &lt; A.length &amp;&amp; A[three] == A[second])three++;</span><br><span class="line">            <span class="keyword">if</span>(three &lt; A.length)&#123;</span><br><span class="line">                <span class="keyword">long</span> left = (<span class="keyword">long</span>)(A[second] - A[first]);</span><br><span class="line">                <span class="keyword">long</span> right = (<span class="keyword">long</span>)(A[three] - A[second]);</span><br><span class="line">                <span class="keyword">if</span>(left*right &lt; <span class="number">0</span>)<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        first = second;</span><br><span class="line">        second = three;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
