@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode,linkcode,algorithm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="catie's blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言    总结一下各种sum，2,3,4还有k个数的和为target的各种题。   1/167/170/653/ two sum及其扩展   15/16/259/ 3sum及其扩展   18/454/ 4sum及其扩展   linkcode 89/90/ k sum及其扩展">
+<meta name="keywords" content="leetcode,linkcode,algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k-sum">
+<meta property="og:url" content="https://catieBlog.github.io/2018/09/04/k-sum/index.html">
+<meta property="og:site_name" content="catie&#39;s blogs">
+<meta property="og:description" content="前言    总结一下各种sum，2,3,4还有k个数的和为target的各种题。   1/167/170/653/ two sum及其扩展   15/16/259/ 3sum及其扩展   18/454/ 4sum及其扩展   linkcode 89/90/ k sum及其扩展">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-05T02:55:00.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="k-sum">
+<meta name="twitter:description" content="前言    总结一下各种sum，2,3,4还有k个数的和为target的各种题。   1/167/170/653/ two sum及其扩展   15/16/259/ 3sum及其扩展   18/454/ 4sum及其扩展   linkcode 89/90/ k sum及其扩展">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://catieBlog.github.io/2018/09/04/k-sum/"/>
+
+
+
+
+
+  <title>k-sum | catie's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">catie's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'QH_nZ5XEZGh9ds8Q68s5','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://catieBlog.github.io/2018/09/04/k-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LWY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="catie's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">k-sum</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T11:25:55+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>前言  </p>
+</blockquote>
+<p>总结一下各种sum，2,3,4还有k个数的和为target的各种题。 </p>
+<ul>
+<li>1/167/170/653/ two sum及其扩展  </li>
+<li>15/16/259/ 3sum及其扩展  </li>
+<li>18/454/ 4sum及其扩展  </li>
+<li>linkcode 89/90/ k sum及其扩展  <a id="more"></a>  
+</li>
+</ul>
+<blockquote>
+<p>Two sum  </p>
+</blockquote>
+<p><strong>1</strong>.找出数组中两个数和为0<br>方法：用HashMap记录之前找过的数和下标，每遍历一个数就判断一下有没有符合条件的。 时间复杂度O(n)空间复杂度O(n)<br><strong>167</strong>.有序数组中，找出两个数和为target<br>方法：left在左边第一个，right在右边最后一个，取两数之和，若大于target则right–，否则left++。这是因为，若两数之和大于target，则代表left向右的所有数字与right相加都大于target，因此放弃right。<br><strong>170</strong>.pre题，two sum数据结构的设计（看不到题）<br><strong>653</strong>.BST中，找出两个和为target<br>方法1：把bst当成有序数组，主要是用栈找左边的数或者右边的数的过程，代码还有点复杂。放在下面。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; lstack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; rstack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findTarget</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        add(root,<span class="keyword">true</span>);</span><br><span class="line">        add(root,<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">//TreeNode lt = lstack.pop();</span></span><br><span class="line">        <span class="comment">//TreeNode rt = rstack.pop();</span></span><br><span class="line">        <span class="keyword">while</span>(lstack.peek() != rstack.peek())&#123;</span><br><span class="line">            <span class="keyword">int</span> n = lstack.peek().val + rstack.peek().val;</span><br><span class="line">            <span class="keyword">if</span>(n &gt; k)&#123;</span><br><span class="line">                next(<span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n == k)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;k)next(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(TreeNode root,<span class="keyword">boolean</span> left)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            </span><br><span class="line">    	    <span class="keyword">if</span>(left)&#123;</span><br><span class="line">            lstack.push(root);</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            rstack.push(root);</span><br><span class="line">            root = root.right;</span><br><span class="line">        &#125;</span><br><span class="line">    	&#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">next</span><span class="params">(<span class="keyword">boolean</span> left)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left)&#123;</span><br><span class="line">           TreeNode root = lstack.pop();</span><br><span class="line">            add(root.right,<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">           TreeNode root = rstack.pop();</span><br><span class="line">            add(root.left,<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">方法<span class="number">2</span>：不理会BST的特点，用set保存之前路过的点，仿造第一题的做法，分别在左右子树递归查找。  </span><br><span class="line">&gt; <span class="number">3</span>Sum  </span><br><span class="line"></span><br><span class="line">**<span class="number">15</span>**.求出所有和为<span class="number">0</span>的组合。  </span><br><span class="line">方法：先将数组排序，对于每一个数作为target，其后的序列用two sum的做法求出合法组合。（使用后面的序列而不翻到前面去是为了避免得到重复结果）  </span><br><span class="line">**<span class="number">16</span>**.数组中可能没有合法项，求一个距离最近的结果。  </span><br><span class="line">和上题一样，不过是在过程中维护一个距离最近的值而已。  </span><br><span class="line">**<span class="number">259</span>**pre题，看不到  </span><br><span class="line">&gt; <span class="number">4</span>sum  </span><br><span class="line"></span><br><span class="line"><span class="number">18</span>.在数组中找四个数使其和为target  </span><br><span class="line">方法：仿造<span class="number">3</span>sum，在外面再加一层循环，等于是利用<span class="number">3</span>sum的结果。放个代码吧。  </span><br><span class="line">```java  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; re = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">4</span>)<span class="keyword">return</span> re;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n-<span class="number">3</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] + nums[n-<span class="number">1</span>]+nums[n-<span class="number">2</span>]+nums[n-<span class="number">3</span>] &lt; target)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] + nums[i+<span class="number">1</span>]+nums[i+<span class="number">2</span>]+nums[i+<span class="number">3</span>] &gt; target)<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>])<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j= i+<span class="number">1</span>;j &lt; n-<span class="number">2</span>;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] +nums[j] + nums[n-<span class="number">1</span>]+nums[n-<span class="number">2</span>] &lt; target)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] +nums[j] + nums[j+<span class="number">1</span>]+nums[j+<span class="number">2</span>] &gt; target)<span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span>(j &gt; i+<span class="number">1</span> &amp;&amp; nums[j]== nums[j-<span class="number">1</span>])<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> l = j+<span class="number">1</span>,h = n-<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(l &lt; h)&#123;</span><br><span class="line">                    <span class="keyword">int</span> t = nums[i]+nums[j]+nums[l]+nums[h];</span><br><span class="line">                    <span class="keyword">if</span>(t &gt;target)h--;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t &lt; target)l++;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        re.add(Arrays.asList(nums[i],nums[j],nums[l],nums[h]));</span><br><span class="line">                        <span class="keyword">while</span>(l &lt; h &amp;&amp; nums[l] == nums[l+<span class="number">1</span>])l++;</span><br><span class="line">                        <span class="keyword">while</span>(l &lt; h &amp;&amp; nums[h] == nums[h-<span class="number">1</span>])h--;</span><br><span class="line">                        l++;</span><br><span class="line">                        h--;</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> re;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"><span class="number">454</span> . 从ABCD四个数组中各挑一个数，使其和为target  </span><br><span class="line">方法：用两个hashMap保存AB和CD的两两之和。再用two sum的方法求得结果。</span><br><span class="line">&gt; K sum</span><br><span class="line"></span><br><span class="line">lintcode <span class="number">90</span>.求出数组中K个数字和为target的所有结果。  </span><br><span class="line">方法：将数组排序，用dfs和回溯的方法求出所有可能即可。排序是为了体现结束循环。</span><br><span class="line">lintcode <span class="number">89</span>.求出数组中K个数字和为target的所有可能的结果数量。  </span><br><span class="line">方法：利用<span class="number">90</span>题的方法统计方案数当然可以，只是这里想介绍一个dp的方法。  </span><br><span class="line">用三维动态规划。  </span><br><span class="line">ksum[i][j][l]表示前j个元素里面取l个元素之和为i。  </span><br><span class="line">初始化：ksum[<span class="number">0</span>][j][<span class="number">0</span>] =<span class="number">1</span>(j:<span class="number">0</span>~n)，即前j个元素里面取<span class="number">0</span>个元素使其和为<span class="number">0</span>的方法只有<span class="number">1</span>种，那就是什么都不取。  </span><br><span class="line">状态函数：`ksum[i][j][l]=ksum[i][j-<span class="number">1</span>][l]+ksum[i-A[i-<span class="number">1</span>]][j-<span class="number">1</span>][l-<span class="number">1</span>]`  </span><br><span class="line">即前j个元素里面取l个元素之和为i由两种情况组成：  </span><br><span class="line">第一种情况为不包含第i个元素，即前j－<span class="number">1</span>个元素里取l个元素使其和为i;  </span><br><span class="line">第二种情况为包含第i个元素，即前j－<span class="number">1</span>个元素里取l－<span class="number">1</span>个元素使其和为i-A[i-<span class="number">1</span>]（前提是i-A[i-<span class="number">1</span>]&gt;=<span class="number">0</span>）。  </span><br><span class="line">代码：</span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: an integer array.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> k: a positive integer (k &lt;= length(A))</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target: a integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kSum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> k, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span>(A == <span class="keyword">null</span> || A.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = A.length;</span><br><span class="line">        <span class="keyword">int</span>[][][] ksum = <span class="keyword">new</span> <span class="keyword">int</span>[target + <span class="number">1</span>][n + <span class="number">1</span>][k + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            ksum[<span class="number">0</span>][j][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= target; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>; l &lt;= j &amp;&amp; l &lt;= k; l++)&#123;</span><br><span class="line">                    ksum[i][j][l] = ksum[i][j - <span class="number">1</span>][l];</span><br><span class="line">                    <span class="keyword">if</span>(i - A[j - <span class="number">1</span>] &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">                        ksum[i][j][l] += ksum[i - A[j - <span class="number">1</span>]][j - <span class="number">1</span>][l - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ksum[target][n][k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/linkcode/" rel="tag"># linkcode</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/leetcode-contest-100/" rel="next" title="leetcode-contest-100">
+                <i class="fa fa-chevron-left"></i> leetcode-contest-100
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LWY</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LWY</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

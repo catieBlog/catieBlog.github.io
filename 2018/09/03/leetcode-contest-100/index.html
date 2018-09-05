@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="catie&#39;s blogs">
 <meta property="og:description" content="前言     这次contest做的不好，前两个简单题交错了两次，第三题因为set迭代添加的事改来改去。再加上找工作告一个小段落，也想放松放松，不过这周的题都很简单。  896：判断是否为单调序列 O(n)   897：把BST变成链表 898：求数组的连续子集 899：对字符串的变相排序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T03:11:03.848Z">
+<meta property="og:updated_time" content="2018-09-04T03:24:58.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-contest-100">
 <meta name="twitter:description" content="前言     这次contest做的不好，前两个简单题交错了两次，第三题因为set迭代添加的事改来改去。再加上找工作告一个小段落，也想放松放松，不过这周的题都很简单。  896：判断是否为单调序列 O(n)   897：把BST变成链表 898：求数组的连续子集 899：对字符串的变相排序">
@@ -416,9 +416,9 @@
 <li>Orderly Queue  </li>
 </ol>
 </blockquote>
-<p>A string S of lowercase letters is given.  Then, we may make any number of moves.<br>In each move, we choose one of the first K letters (starting from the left), remove it, and place it at the end of the string.<br>Return the lexicographically smallest string we could have after any number of moves.<br>一个字符串，每次只能从前k个字母中拿出一个字母放到最后，问经过若干次操作后能得到的最小字符串是什么。<br>这个题也有意思，和百度面试我的差不多，那个面试题是一个数组，每次只能从中选一个放到最后，问经过几次操作使得其变为递增有序的数组。这题的答案面试官是说每次取最大的放到后面，知道其变为有序，这样的做法使用的次数最小。<br>跟这个题比较，这个题就可以分两种情况讨论：</p>
+<p>A string S of lowercase letters is given.  Then, we may make any number of moves.<br>In each move, we choose one of the first K letters (starting from the left), remove it, and place it at the end of the string.<br>Return the lexicographically smallest string we could have after any number of moves.<br>一个字符串，每次只能从前k个字母中拿出一个字母放到最后，问经过若干次操作后能得到的最小字符串是什么。<br>这个题也有意思，和百度面试我的差不多，那个面试题是一个数组，每次只能从中选一个放到最后，问经过几次操作使得其变为递增有序的数组。这题的答案面试官是说每次取最大的放到后面，知道其变为有序，这样的做法使用的次数最小。<br>跟这个题比较，这个题就可以分两种情况讨论：  </p>
 <ol>
-<li>K==1时，遍历字符串得出所有的结果，保留一个最小的</li>
+<li>K==1时，遍历字符串得出所有的结果，保留一个最小的  </li>
 <li>k&gt;1时，无限次的操作总能得到最小的结果<br>这个题的代码我就没写，用一个discuss的<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">orderlyQueue</span><span class="params">(String S, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(K == <span class="number">1</span>) <span class="keyword">return</span> slideString(S);</span><br><span class="line">    <span class="keyword">char</span>[] arr = S.toCharArray();</span><br><span class="line">    Arrays.sort(arr);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> String(arr);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">slideString</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">    String res = S, cur = S;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S.length(); i ++) &#123;</span><br><span class="line">        cur = cur.substring(<span class="number">1</span>) + cur.charAt(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(cur.compareTo(res) &lt; <span class="number">0</span>) </span><br><span class="line">            res = cur;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
@@ -451,15 +451,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/04/k-sum/" rel="prev" title="k-sum">
+                k-sum <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +549,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

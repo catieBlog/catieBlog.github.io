@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://catieBlog.github.io/"/>
-  <updated>2018-09-04T03:11:03.848Z</updated>
+  <updated>2018-09-05T02:55:00.323Z</updated>
   <id>https://catieBlog.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>k-sum</title>
+    <link href="https://catieBlog.github.io/2018/09/04/k-sum/"/>
+    <id>https://catieBlog.github.io/2018/09/04/k-sum/</id>
+    <published>2018-09-04T03:25:55.000Z</published>
+    <updated>2018-09-05T02:55:00.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前言  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总结一下各种sum，2,3,4还有k个数的和为target的各种题。 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1/167/170/653/ two sum及其扩展  &lt;/li&gt;
+&lt;li&gt;15/16/259/ 3sum及其扩展  &lt;/li&gt;
+&lt;li&gt;18/454/ 4sum及其扩展  &lt;/li&gt;
+&lt;li&gt;linkcode 89/90/ k sum及其扩展
+    
+    </summary>
+    
+      <category term="leetcode" scheme="https://catieBlog.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="https://catieBlog.github.io/tags/leetcode/"/>
+    
+      <category term="linkcode" scheme="https://catieBlog.github.io/tags/linkcode/"/>
+    
+      <category term="algorithm" scheme="https://catieBlog.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode-contest-100</title>
     <link href="https://catieBlog.github.io/2018/09/03/leetcode-contest-100/"/>
     <id>https://catieBlog.github.io/2018/09/03/leetcode-contest-100/</id>
     <published>2018-09-03T07:14:15.000Z</published>
-    <updated>2018-09-04T03:11:03.848Z</updated>
+    <updated>2018-09-04T03:24:58.759Z</updated>
     
     <summary type="html">
     
@@ -41,28 +73,6 @@
     
     
       <category term="leetcode contest" scheme="https://catieBlog.github.io/tags/leetcode-contest/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://catieBlog.github.io/2018/09/03/hello-world/"/>
-    <id>https://catieBlog.github.io/2018/09/03/hello-world/</id>
-    <published>2018-09-03T03:00:12.673Z</published>
-    <updated>2017-10-28T00:39:58.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
     
   </entry>
   
