@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://catieBlog.github.io/"/>
-  <updated>2018-09-05T02:58:44.725Z</updated>
+  <updated>2018-09-25T08:27:54.427Z</updated>
   <id>https://catieBlog.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-contest-102</title>
+    <link href="https://catieBlog.github.io/2018/09/18/leetcode-contest-102/"/>
+    <id>https://catieBlog.github.io/2018/09/18/leetcode-contest-102/</id>
+    <published>2018-09-18T03:29:40.000Z</published>
+    <updated>2018-09-25T08:27:54.427Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前言   &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这周的比赛正好撞上腾讯的笔试，做了两个题就没做了，后面两个题是下来补充的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;904 Fruit Into Baskets&lt;/li&gt;
+&lt;li&gt;905 Sort Array By Parity&lt;/li&gt;
+&lt;li&gt;906 Super Palindromes&lt;/li&gt;
+&lt;li&gt;907 Sum of Subarray Minimums
+    
+    </summary>
+    
+      <category term="leetcode" scheme="https://catieBlog.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode contest" scheme="https://catieBlog.github.io/tags/leetcode-contest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>股票问题</title>
+    <link href="https://catieBlog.github.io/2018/09/05/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/"/>
+    <id>https://catieBlog.github.io/2018/09/05/股票问题/</id>
+    <published>2018-09-05T03:02:08.000Z</published>
+    <updated>2018-09-05T07:50:50.088Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前言  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总结一下leetcode上的股票问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;121.Best Time to Buy and Sell Stock只能交易一次的最大获益&lt;/li&gt;
+&lt;li&gt;122.Best Time to Buy and Sell Stock II 交易无数次的最大收益&lt;/li&gt;
+&lt;li&gt;123.Best Time to Buy and Sell Stock III 最多交易两次的最大收益&lt;/li&gt;
+&lt;li&gt;188.Best Time to Buy and Sell Stock IV 最多交易k次的最大收益&lt;/li&gt;
+&lt;li&gt;309.Best Time to Buy and Sell Stock with Cooldown 连续两次交易之间必须空一天以上的最大收益&lt;/li&gt;
+&lt;li&gt;714.Best Time to Buy and Sell Stock with Transaction Fee每次交易都需要手续费，可以交易无数次的最大收益
+    
+    </summary>
+    
+      <category term="leetcode" scheme="https://catieBlog.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="https://catieBlog.github.io/tags/leetcode/"/>
+    
+      <category term="algorithm" scheme="https://catieBlog.github.io/tags/algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>k-sum</title>
