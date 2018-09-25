@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="catie&#39;s blogs">
 <meta property="og:description" content="前言    总结一下leetcode上的股票问题。  121.Best Time to Buy and Sell Stock只能交易一次的最大获益 122.Best Time to Buy and Sell Stock II 交易无数次的最大收益 123.Best Time to Buy and Sell Stock III 最多交易两次的最大收益 188.Best Time to Buy an">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T08:35:16.358Z">
+<meta property="og:updated_time" content="2018-09-25T08:37:41.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票问题">
 <meta name="twitter:description" content="前言    总结一下leetcode上的股票问题。  121.Best Time to Buy and Sell Stock只能交易一次的最大获益 122.Best Time to Buy and Sell Stock II 交易无数次的最大收益 123.Best Time to Buy and Sell Stock III 最多交易两次的最大收益 188.Best Time to Buy an">
@@ -388,15 +388,8 @@
 </li>
 </ul>
 <!-- toc -->  
-<p>###<strong>121</strong>只能交易一次取最大收益<br>方法：用两个变量，一个记录所有价格的最小值，一个变量维护当前价格减去最小价格所得到的最大收益，遍历结束后返回最大收益。</p>
-<p>###<strong>122</strong>无数次交易取最大收益</p>
-<p>####状态转移法</p>
-<p>####普通方法</p>
-<p>###<strong>714</strong>无数次交易且每次收取手续费，取最大收益</p>
-<p>###<strong>309</strong>无数次交易且必须休息，取最大收益</p>
-<p>###<strong>123</strong>最多交易两次取最大收益</p>
-<p>###<strong>188</strong>最多交易K次取最大收益</p>
-
+<h3 id="121只能交易一次取最大收益"><a href="#121只能交易一次取最大收益" class="headerlink" title="121只能交易一次取最大收益"></a><strong>121</strong>只能交易一次取最大收益</h3><p>方法：用两个变量，一个记录所有价格的最小值，一个变量维护当前价格减去最小价格所得到的最大收益，遍历结束后返回最大收益。</p>
+<h3 id="122无数次交易取最大收益"><a href="#122无数次交易取最大收益" class="headerlink" title="122无数次交易取最大收益"></a><strong>122</strong>无数次交易取最大收益</h3><h4 id="状态转移法"><a href="#状态转移法" class="headerlink" title="状态转移法"></a>状态转移法</h4><h4 id="普通方法"><a href="#普通方法" class="headerlink" title="普通方法"></a>普通方法</h4><h3 id="714无数次交易且每次收取手续费，取最大收益"><a href="#714无数次交易且每次收取手续费，取最大收益" class="headerlink" title="714无数次交易且每次收取手续费，取最大收益"></a><strong>714</strong>无数次交易且每次收取手续费，取最大收益</h3><h3 id="309无数次交易且必须休息，取最大收益"><a href="#309无数次交易且必须休息，取最大收益" class="headerlink" title="309无数次交易且必须休息，取最大收益"></a><strong>309</strong>无数次交易且必须休息，取最大收益</h3><h3 id="123最多交易两次取最大收益"><a href="#123最多交易两次取最大收益" class="headerlink" title="123最多交易两次取最大收益"></a><strong>123</strong>最多交易两次取最大收益</h3><h3 id="188最多交易K次取最大收益"><a href="#188最多交易K次取最大收益" class="headerlink" title="188最多交易K次取最大收益"></a><strong>188</strong>最多交易K次取最大收益</h3>
       
     </div>
     
@@ -492,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -560,6 +562,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#121只能交易一次取最大收益"><span class="nav-number">1.</span> <span class="nav-text">121只能交易一次取最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#122无数次交易取最大收益"><span class="nav-number">2.</span> <span class="nav-text">122无数次交易取最大收益</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态转移法"><span class="nav-number">2.1.</span> <span class="nav-text">状态转移法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#普通方法"><span class="nav-number">2.2.</span> <span class="nav-text">普通方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#714无数次交易且每次收取手续费，取最大收益"><span class="nav-number">3.</span> <span class="nav-text">714无数次交易且每次收取手续费，取最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#309无数次交易且必须休息，取最大收益"><span class="nav-number">4.</span> <span class="nav-text">309无数次交易且必须休息，取最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#123最多交易两次取最大收益"><span class="nav-number">5.</span> <span class="nav-text">123最多交易两次取最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#188最多交易K次取最大收益"><span class="nav-number">6.</span> <span class="nav-text">188最多交易K次取最大收益</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
